@@ -1,6 +1,6 @@
 {
   "name": "v-dragged",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Vue directive plugin for advanced drag event detection.",
   "main": "dist/v-dragged.js",
   "scripts": {

@@ -1,5 +1,5 @@
 /*
- * v-dragged v0.0.3
+ * v-dragged v0.0.4
  * https://github.com/zhanziyang/v-dragged
  * 
  * Copyright (c) 2017 zhanziyang
@@ -75,7 +75,7 @@ function shouldUseNative() {
 	}
 }
 
-var index = shouldUseNative() ? Object.assign : function (target, source) {
+var objectAssign = shouldUseNative() ? Object.assign : function (target, source) {
 	var from;
 	var to = toObject(target);
 	var symbols;
@@ -132,7 +132,8 @@ var directive = {
         el: el,
         first: true,
         clientX: evt.clientX,
-        clientY: evt.clientY
+        clientY: evt.clientY,
+        evt: evt
       });
       draggedElem = el;
     }
@@ -144,7 +145,8 @@ var directive = {
         el: el,
         last: true,
         clientX: evt.clientX,
-        clientY: evt.clientY
+        clientY: evt.clientY,
+        evt: evt
       });
       draggedElem = null;
     }
@@ -189,7 +191,7 @@ var defaultOptions = {};
 
 var VDragged = {
   install: function install(Vue, options) {
-    options = index({}, defaultOptions, options);
+    options = objectAssign({}, defaultOptions, options);
     var major = Number(Vue.version.split('.')[0]);
     var minor = Number(Vue.version.split('.')[1]);
     if (major < 2 && minor < 1) {

@@ -12,7 +12,7 @@ npm install --save v-dragged
 import Vue from 'vue'
 import VDragged from 'v-dragged'
 
-Vue.use(VDragged) 
+Vue.use(VDragged)
 ```
 
 ## Example
@@ -25,7 +25,7 @@ Vue.use(VDragged)
   // ...other options omitted
 
   methods: {
-    onDragged({ el, deltaX, deltaY, offsetX, offsetY, clientX, clientY, first, last }) {
+    onDragged({ el, deltaX, deltaY, offsetX, offsetY, clientX, clientY, first, last, evt }) {
       if (first) {
         this.dragged = true
         return
@@ -82,6 +82,10 @@ The argument passed to the callback function is an object containing the followi
 #### clientY
 - Current y coordination of the pointer (mouse/touch).
 - type: Number
+
+#### evt
+- HTML event payload
+- type: Object
 
 ## Modifier
 
