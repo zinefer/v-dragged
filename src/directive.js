@@ -17,7 +17,8 @@ export default {
         el,
         first: true,
         clientX: evt.clientX,
-        clientY: evt.clientY
+        clientY: evt.clientY,
+        evt: evt
       })
       draggedElem = el
     }
@@ -29,7 +30,8 @@ export default {
         el,
         last: true,
         clientX: evt.clientX,
-        clientY: evt.clientY
+        clientY: evt.clientY,
+        evt: evt
       })
       draggedElem = null
     }
